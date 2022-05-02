@@ -3,6 +3,11 @@ package member;
 import java.util.Scanner;
 
 public class RunningMember extends Member {
+	
+	public RunningMember(MemberKind kind) {
+		super(kind);
+	}
+	
 	public void getUserInput(Scanner input) {
 		System.out.print("Member Name:");
 		String Name = input.next();
@@ -28,10 +33,10 @@ public class RunningMember extends Member {
 		char answer = 'x';
 		while(answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') 
 		{
-			System.out.print("Do you want  an Program? (Y/N)");
+			System.out.print("Do you want a Running? (Y/N)");
 			answer = input.next().charAt(0);
 			if (answer == 'y' || answer == 'Y') {
-				System.out.print("Member Program Kind:");
+				System.out.print("Program Level:");
 				String Program = input.next();
 				this.setProgram(Program);
 				break;
@@ -43,5 +48,25 @@ public class RunningMember extends Member {
 			else {
 			}
 		}
+	}
+	
+	public void print() {
+		String skind = "none";
+		switch(this.kind) {
+		case Running:
+			skind = "Running";
+			break;
+		case Weight:
+			skind = "Weight";
+			break;
+		case Pilates:
+			skind = "Pilates";
+			break;
+		case Jumping:
+			skind = "Jumping";
+			break;
+		default:
+		}
+		System.out.println("Kind" + skind + "Name: " + Name + " Height: " + Height + " Weight: " + Weight + " Bmi: " + Bmi + " Number: " + Number + " Program: " + Program);
 	}
 }

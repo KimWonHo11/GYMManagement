@@ -1,6 +1,6 @@
 package member;
 
-public enum ProgramKind {
+public enum MemberKind {
 	Running,
 	Weight,
 	Pilates,

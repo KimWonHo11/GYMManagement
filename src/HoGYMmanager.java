@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import member.JumpingMember;
 import member.Member;
+import member.MemberKind;
 import member.PilatesMember;
 import member.RunningMember;
 import member.WeightMember;
@@ -12,37 +13,37 @@ public class HoGYMmanager {
 	Scanner input;
 	HoGYMmanager(Scanner input) {
 		this.input = input;
-	}
+	} 	
 
 	public void Addm() {
 		int kind =0;
 		Member member;
 		while (kind != 1 && kind != 2 && kind != 3 && kind != 4) {
-			System.out.print("1 for Running ");
-			System.out.print("2 for Weight ");
-			System.out.print("3 for Pilates ");
-			System.out.print("4 for Jumping ");
-			System.out.print("Select num for Member Kind between 1~4:");
+			System.out.println("1 for Running ");
+			System.out.println("2 for Weight ");
+			System.out.println("3 for Pilates ");
+			System.out.println("4 for Jumping ");
+			System.out.println("Select num for Member Kind between 1~4:");
 			kind = input.nextInt();
 			if(kind==1) {
-				member = new RunningMember();
+				member = new RunningMember(MemberKind.Running);
 				member.getUserInput(input);
 				members.add(member);
 				break;
 			}
 			else if(kind == 2) {
-				member = new WeightMember();
+				member = new WeightMember(MemberKind.Weight);
 				member.getUserInput(input);
 				members.add(member);
 				break;
 			}
 			else if(kind == 3) {
-				member = new PilatesMember();
+				member = new PilatesMember(MemberKind.Pilates);
 				members.add(member);
 				break;
 			}
 			else if(kind == 4) {
-				member = new JumpingMember();
+				member = new JumpingMember(MemberKind.Jumping);
 				members.add(member);
 				break;
 			}

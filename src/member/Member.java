@@ -3,7 +3,7 @@ package member;
 import java.util.Scanner;
 
 public class Member {
-	protected ProgramKind kind = ProgramKind.Weight;
+	protected MemberKind kind = MemberKind.Weight;
 	protected String Name;
 	protected double Height;
 	protected double Weight;
@@ -14,6 +14,9 @@ public class Member {
 	public Member() {
 	}
 	
+	public Member(MemberKind kind) {
+		this.kind = kind;
+	}
 	
 	public Member(String Name, double Height, double Weight, double Bmi, String Number, String Program) {
 		this.Name = Name;
@@ -24,12 +27,22 @@ public class Member {
 		this.Program = Program;
 	}
 	
-	public ProgramKind getKind() {
+	public Member(MemberKind kind,String Name, double Height, double Weight, double Bmi, String Number, String Program) {
+		this.kind = kind;
+		this.Name = Name;
+		this.Height = Height;
+		this.Weight = Weight;
+		this.Bmi = Bmi;
+		this.Number = Number;
+		this.Program = Program;
+	}
+	
+	public MemberKind getKind() {
 		return kind;
 	}
 
 
-	public void setKind(ProgramKind kind) {
+	public void setKind(MemberKind kind) {
 		this.kind = kind;
 	}
 
@@ -94,7 +107,23 @@ public class Member {
 	}
 	
 	public void print() {
-		System.out.println("Name: " + Name + " Height: " + Height + " Weight: " + Weight + " Bmi: " + Bmi + " Number: " + Number + " Program: " + Program);
+		String skind = "none";
+		switch(this.kind) {
+		case Running:
+			skind = "Running";
+			break;
+		case Weight:
+			skind = "Weight";
+			break;
+		case Pilates:
+			skind = "Pilates";
+			break;
+		case Jumping:
+			skind = "Jumping";
+			break;
+		default:
+		}
+		System.out.println("Kind" + skind + "Name: " + Name + " Height: " + Height + " Weight: " + Weight + " Bmi: " + Bmi + " Number: " + Number + " Program: " + Program);
 	}
 	
 	public void getUserInput(Scanner input) {
