@@ -3,13 +3,14 @@ import java.util.Scanner;
 
 import member.JumpingMember;
 import member.Member;
+import member.MemberInput;
 import member.MemberKind;
 import member.PilatesMember;
 import member.RunningMember;
 import member.WeightMember;
 
 public class HoGYMmanager {
-	ArrayList<Member> members = new ArrayList<Member>();
+	ArrayList<MemberInput> members = new ArrayList<MemberInput>();
 	Scanner input;
 	HoGYMmanager(Scanner input) {
 		this.input = input;
@@ -17,7 +18,7 @@ public class HoGYMmanager {
 
 	public void Addm() {
 		int kind =0;
-		Member member;
+		MemberInput memberInput;
 		while (kind != 1 && kind != 2 && kind != 3 && kind != 4) {
 			System.out.println("1 for Running ");
 			System.out.println("2 for Weight ");
@@ -26,25 +27,25 @@ public class HoGYMmanager {
 			System.out.println("Select num for Member Kind between 1~4:");
 			kind = input.nextInt();
 			if(kind==1) {
-				member = new RunningMember(MemberKind.Running);
-				member.getUserInput(input);
-				members.add(member);
+				memberInput = new RunningMember(MemberKind.Running);
+				memberInput.getUserInput(input);
+				members.add(memberInput);
 				break;
 			}
 			else if(kind == 2) {
-				member = new WeightMember(MemberKind.Weight);
-				member.getUserInput(input);
-				members.add(member);
+				memberInput = new WeightMember(MemberKind.Weight);
+				memberInput.getUserInput(input);
+				members.add(memberInput);
 				break;
 			}
 			else if(kind == 3) {
-				member = new PilatesMember(MemberKind.Pilates);
-				members.add(member);
+				memberInput = new PilatesMember(MemberKind.Pilates);
+				members.add(memberInput);
 				break;
 			}
 			else if(kind == 4) {
-				member = new JumpingMember(MemberKind.Jumping);
-				members.add(member);
+				memberInput = new JumpingMember(MemberKind.Jumping);
+				members.add(memberInput);
 				break;
 			}
 			else {
@@ -78,8 +79,8 @@ public class HoGYMmanager {
 		System.out.print("Member Name:");
 		String name = input.next();
 		for(int i=0; i < members.size(); i++) {
-			Member member = members.get(i);
-			if (members.get(i).getName() == name) {
+			MemberInput memberInput = members.get(i);
+			if (memberInput.getName() == name) {
 				int num=0;
 				while (num != 7) {
 					System.out.println("Member Info Edit Menu");
@@ -97,32 +98,32 @@ public class HoGYMmanager {
 					case 1: 
 						System.out.print("Member Name: ");
 						String Name= input.next();
-						member.setName(Name);
+						memberInput.setName(Name);
 						break;
 					case 2: 
 						System.out.print("Member Height: ");
 						double Height = input.nextDouble();
-						member.setHeight(Height);
+						memberInput.setHeight(Height);
 						break;
 					case 3: 
 						System.out.print("Member Weight: ");
 						double Weight = input.nextDouble();
-						member.setWeight(Weight);
+						memberInput.setWeight(Weight);
 						break;
 					case 4: 
 						System.out.print("Member Bmi: ");
 						double Bmi = input.nextDouble();
-						member.setBmi(Bmi);
+						memberInput.setBmi(Bmi);
 						break;
 					case 5: 
 						System.out.print("Member Number: ");
 						String Number= input.next();
-						member.setNumber(Number);
+						memberInput.setNumber(Number);
 						break;
 					case 6: 
 						System.out.print("Member date: ");
 						String Program = input.next();
-						member.setProgram(Program);
+						memberInput.setProgram(Program);
 						break;
 					case 7:
 						System.out.println("Exit");

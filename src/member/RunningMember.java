@@ -2,7 +2,7 @@ package member;
 
 import java.util.Scanner;
 
-public class RunningMember extends Member {
+public class RunningMember extends Member implements MemberInput {
 	
 	public RunningMember(MemberKind kind) {
 		super(kind);

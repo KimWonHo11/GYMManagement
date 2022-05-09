@@ -2,7 +2,7 @@ package member;
 
 import java.util.Scanner;
 
-public class WeightMember extends Member {
+public class WeightMember extends Member implements MemberInput{
 	
 	public WeightMember(MemberKind kind) {
 		super(kind);
