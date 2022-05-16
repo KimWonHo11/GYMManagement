@@ -2,13 +2,17 @@ package member;
 
 import java.util.Scanner;
 
-public interface MemberInput {
+import exception.PhoneNumberFormatException;
+
+public interface MemberInput { //운동종류에 따른 회원의 신상정보를 각각 입력하기 위해 추상적으로 구현한 클래스
 	
 	public void getUserInput(Scanner input);
 	
-	public String getName();
+	public int getId();
 	
-	public void setName(String name);
+	public void setId(int id);
+	
+	public void setName(String Name); 
 	
 	public void setHeight(double height);
 	
@@ -16,9 +20,24 @@ public interface MemberInput {
 	
 	public void setBmi(double bmi);
 	
-	public void setNumber(String number);
+	public void setPhoneNumber(String phonenumber) throws PhoneNumberFormatException;
 	
-	public void setProgram(String program);
+	public void setProgramName(String programname);
 	
 	public void print();
+	
+	public void setMemberId(Scanner input);
+	
+	public void setMemberName(Scanner input);
+	
+	public void setMemberHeight(Scanner input);
+	
+	public void setMemberWeight(Scanner input);
+	
+	public void setMemberBmi(Scanner input);
+	
+	public void setMemberPhoneNumber(Scanner input);
+	
+	public void setMemberProgramName(Scanner input);
+
 }

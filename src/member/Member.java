@@ -2,14 +2,17 @@ package member;
 
 import java.util.Scanner;
 
-public abstract class Member {
+import exception.PhoneNumberFormatException;
+
+public abstract class Member implements MemberInput { //MemberInput클래스를 상속받고 회원정보를 함수와 변수로 선언 및 정의한 클래스
 	protected MemberKind kind = MemberKind.Weight;
+	protected int Id;
 	protected String Name;
 	protected double Height;
 	protected double Weight;
 	protected double Bmi;
-	protected String Number;
-	protected String Program;
+	protected String PhoneNumber;
+	protected String ProgramName;
 	
 	public Member() {
 	}
@@ -18,23 +21,25 @@ public abstract class Member {
 		this.kind = kind;
 	}
 	
-	public Member(String Name, double Height, double Weight, double Bmi, String Number, String Program) {
+	public Member(int Id, String Name, double Height, double Weight, double Bmi, String PhoneNumber, String ProgramName) {
+		this.Id = Id;
 		this.Name = Name;
 		this.Height = Height;
 		this.Weight = Weight;
 		this.Bmi = Bmi;
-		this.Number = Number;
-		this.Program = Program;
+		this.PhoneNumber = PhoneNumber;
+		this.ProgramName = ProgramName;
 	}
 	
-	public Member(MemberKind kind, String Name, double Height, double Weight, double Bmi, String Number, String Program) {
+	public Member(MemberKind kind, int Id, String Name, double Height, double Weight, double Bmi, String PhoneNumber, String ProgramName) {
 		this.kind = kind;
+		this.Id = Id;
 		this.Name = Name;
 		this.Height = Height;
 		this.Weight = Weight;
 		this.Bmi = Bmi;
-		this.Number = Number;
-		this.Program = Program;
+		this.PhoneNumber = PhoneNumber;
+		this.ProgramName = ProgramName;
 	}
 	
 	public MemberKind getKind() {
@@ -47,16 +52,23 @@ public abstract class Member {
 	}
 
 
+	public int getId() {
+		return Id;
+	}
+
+
+	public void setId(int Id) {
+		this.Id = Id;
+	}
+
 	public String getName() {
 		return Name;
 	}
 
-
 	public void setName(String name) {
-		this.Name = name;
+		Name = name;
 	}
-
-
+	
 	public double getHeight() {
 		return Height;
 	}
@@ -87,25 +99,100 @@ public abstract class Member {
 	}
 
 
-	public String getNumber() {
-		return Number;
+	public String getPhoneNumber() {
+		return PhoneNumber;
 	}
 
 
-	public void setNumber(String number) {
-		this.Number = number;
+	public void setPhoneNumber(String PhoneNumber) throws PhoneNumberFormatException{
+		if(!PhoneNumber.contains("-") && !PhoneNumber.equals("")) {
+			throw new PhoneNumberFormatException();
+		}
+		this.PhoneNumber = PhoneNumber;
 	}
 
 
-	public String getProgram() {
-		return Program;
+	public String getProgramName() {
+		return ProgramName;
 	}
 
 
-	public void setProgram(String program) {
-		this.Program = program;
+	public void setProgramName(String ProgramName) {
+		this.ProgramName = ProgramName;
 	}
 	
 	public abstract void print();
+	
+	public void setMemberId(Scanner input) {
+		System.out.print("Member Id: ");
+		int Id = input.nextInt();
+		this.setId(Id);
+	}
+	
+	public void setMemberName(Scanner input) {
+		System.out.print("Member Name: ");
+		String Name = input.next();
+		this.setName(Name);
+	}
+	
+	public void setMemberHeight(Scanner input) {
+		System.out.print("Member Height: ");
+		double Height = input.nextDouble();
+		this.setHeight(Height);
+	}
+	
+	public void setMemberWeight(Scanner input) {
+		System.out.print("Member Weight: ");
+		double Weight = input.nextDouble();
+		this.setWeight(Weight);
+	}
+	
+	public void setMemberBmi(Scanner input) {
+		System.out.print("Member Bmi: ");
+		double Bmi = input.nextDouble();
+		this.setBmi(Bmi);
+	}
+	
+	public void setMemberPhoneNumber(Scanner input) {
+		String PhoneNumber= "";
+		while(!PhoneNumber.contains("-")) {
+			System.out.print("Member PhoneNumber: ");
+			PhoneNumber= input.next();
+			try {
+				this.setPhoneNumber(PhoneNumber);
+			}
+			catch(PhoneNumberFormatException e) {
+				System.out.println("Incorrect PhoneNumber Format. put the PhoneNumber that contains -");
+			}
+		}
+	}
+	
+	public void setMemberProgramName(Scanner input) {
+		System.out.print("Member ProgramName: ");
+		String ProgramName= input.next();
+		this.setProgramName(ProgramName);
+	}
+	
+	
+	public String getKindString() {
+		String skind = "none";
+		switch(this.kind) {
+		case Running:
+			skind = "Running";
+			break;
+		case Weight:
+			skind = "Weight";
+			break;
+		case Pilates:
+			skind = "Pilates";
+			break;
+		case Jumping:
+			skind = "Jumping";
+			break;
+		default:
+		}
+		return skind;
+	}
+
 
 }
