@@ -1,10 +1,11 @@
 package member;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.PhoneNumberFormatException;
 
-public abstract class Member implements MemberInput { //MemberInput클래스를 상속받고 회원정보를 함수와 변수로 선언 및 정의한 클래스
+public abstract class Member implements MemberInput,Serializable { //MemberInput클래스를 상속받고 회원정보를 함수와 변수로 선언 및 정의한 클래스
 	protected MemberKind kind = MemberKind.Weight;
 	protected int Id;
 	protected String Name;

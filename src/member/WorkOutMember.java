@@ -5,7 +5,7 @@ import java.util.Scanner;
 public abstract class WorkOutMember extends Member { //Member 클래스를 상속받은 추상화클래스
 	
 	
-	public WorkOutMember(MemberKind kind) { //생성과 동시에 kind를 입력한느 생성자함수
+	public WorkOutMember(MemberKind kind) { //생성과 동시에 kind를 입력받는 생성자함수
 		super(kind);
 	}
 

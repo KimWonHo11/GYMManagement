@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -10,9 +11,14 @@ import member.PilatesMember;
 import member.RunningMember;
 import member.WeightMember;
 
-public class HoGYMmanager { //회원정보 입력, 삭제, 편집, 출력을 함수로 구현한 클래스
+public class HoGYMmanager implements Serializable { //회원정보 입력, 삭제, 편집, 출력을 함수로 구현한 클래스
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5468554216985167472L;
+	
 	ArrayList<MemberInput> members = new ArrayList<MemberInput>(); //MemberInput 클래스를 ArrayList로 생성
-	Scanner input;
+	transient Scanner input;
 	HoGYMmanager(Scanner input) { //HoGYMmanager 클래스의 생성자함수 생성
 		this.input = input;
 	} 	
