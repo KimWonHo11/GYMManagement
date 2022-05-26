@@ -22,7 +22,7 @@ public class MemberViewer extends JFrame {
 		JScrollPane sp = new JScrollPane(table);
 		
 		this.add(sp);
-		this.setSize(300, 300);
+		this.setSize(1000, 500);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
