@@ -1,3 +1,4 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -151,6 +152,14 @@ public class HoGYMmanager implements Serializable { //회원정보 입력, 삭제, 편집,
 		}
 	}
 	
+	public int size() {
+		return members.size();
+	}
+		
+	public MemberInput get(int index) {
+		return (Member) members.get(index);
+	}
+		
 	public void showEditMenu() { //edit함수의 보기 출력하는 함수
 		System.out.println("Member Info Edit Menu");
 		System.out.println("1. Edit Id");
@@ -163,5 +172,7 @@ public class HoGYMmanager implements Serializable { //회원정보 입력, 삭제, 편집,
 		System.out.println("8. Exit");
 		System.out.print("Select one number between 1-8: ");
 	}
+
+
 }
 

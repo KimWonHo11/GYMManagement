@@ -1,3 +1,4 @@
+package manager;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import gui.WindowFrame;
 import log.EventLogger;
 
 public class Menumanager {
@@ -19,6 +21,7 @@ public class Menumanager {
 			hoGYM = new HoGYMmanager(input);
 		}
 		
+		WindowFrame frame = new WindowFrame(hoGYM);
 		selectMenu(input, hoGYM);
 		putObject(hoGYM, "hoGYM.ser");
 	}

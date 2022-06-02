@@ -12,6 +12,20 @@ public interface MemberInput { //운동종류에 따른 회원의 신상정보를 각각 입력하기
 	
 	public void setId(int id);
 	
+	public String getName();
+	
+	public double getHeight();
+	
+	public MemberKind getKind();
+	
+	public double getBmi();
+	
+	public String getPhoneNumber();
+	
+	public String getProgramName();
+	
+	public double getWeight();
+	
 	public void setName(String Name); 
 	
 	public void setHeight(double height);
