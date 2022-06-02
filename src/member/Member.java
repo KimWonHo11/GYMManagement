@@ -195,5 +195,4 @@ public abstract class Member implements MemberInput,Serializable { //MemberInput
 		return skind;
 	}
 
-
 }

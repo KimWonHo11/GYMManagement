@@ -21,5 +21,4 @@ public class ButtonViewListener implements ActionListener {
 		MemberViewer viewer = frame.getMemberviewer();
 		frame.setupPanel(viewer);
 	}
-
 }

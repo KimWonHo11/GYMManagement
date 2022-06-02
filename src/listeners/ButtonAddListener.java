@@ -22,5 +22,4 @@ public class ButtonAddListener implements ActionListener {
 		MemberAdder adder = frame.getMemberadder();
 		frame.setupPanel(adder);
 	}
-
 }

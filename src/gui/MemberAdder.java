@@ -68,4 +68,5 @@ public class MemberAdder extends JPanel {
 		this.setVisible(true);
 		
 	}
+	
 }

@@ -58,5 +58,4 @@ public class WindowFrame extends JFrame {
 		this.memberviewer = memberviewer;
 	}
 
-
 }

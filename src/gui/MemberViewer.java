@@ -51,5 +51,4 @@ public class MemberViewer extends JPanel {
 		
 		this.add(sp);
 	}
-
 }

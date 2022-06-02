@@ -24,6 +24,7 @@ public class HoGYMmanager implements Serializable { //회원정보 입력, 삭제, 편집,
 		this.input = input;
 	} 	
 
+	
 	public void Addm() { //회원정보 입력 함수
 		int kind =0; //회원의 운동종류 while문을 실행하기 위해 kind를 0으로 선언 및 정의
 		MemberInput memberInput; //MemberInput을 memberInput으로 선언

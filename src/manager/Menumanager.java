@@ -26,6 +26,7 @@ public class Menumanager {
 		putObject(hoGYM, "hoGYM.ser");
 	}
 	
+	
 	public static void selectMenu(Scanner input, HoGYMmanager hoGYM) { //회원을 입력, 삭제, 편집, 출력의 보기를 보여주는 함수
 		int num = 0;
 		while (num != 5) {
