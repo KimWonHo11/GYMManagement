@@ -18,7 +18,6 @@ public interface MemberInput { //운동종류에 따른 회원의 신상정보를 각각 입력하기
 	
 	public MemberKind getKind();
 	
-
 	public double getBmi();
 	
 	public String getPhoneNumber();

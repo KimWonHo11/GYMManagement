@@ -20,6 +20,9 @@ public class Menumanager {
 		if(hoGYM == null) {
 			hoGYM = new HoGYMmanager(input);
 		}
+		else {
+			hoGYM.input= input;
+		}
 		
 		WindowFrame frame = new WindowFrame(hoGYM);
 		selectMenu(input, hoGYM);
