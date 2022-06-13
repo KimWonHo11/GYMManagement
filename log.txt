@@ -1,2 +1,0 @@
-6월 02, 2022 11:50:54 오후 log.EventLogger log
-정보: view a list of member

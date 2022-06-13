@@ -7,12 +7,17 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import listeners.MemberAdderCancelListener;
+import listeners.MemberAdderListener;
+import manager.HoGYMmanager;
+
 public class MemberAdder extends JPanel {
-	
+	HoGYMmanager hoGYM;
 	WindowFrame frame;
 	
-	public MemberAdder(WindowFrame frame) {
+	public MemberAdder(WindowFrame frame, HoGYMmanager hoGYM) {
 		this.frame = frame;
+		this.hoGYM = hoGYM;
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
@@ -56,11 +61,18 @@ public class MemberAdder extends JPanel {
 		JLabel labelProgramName = new JLabel("ProgramName: " , JLabel.TRAILING);
 		JTextField fieldProgramName = new JTextField(10);
 		labelProgramName.setLabelFor(fieldProgramName);
+		
+		JButton saveButton = new JButton("save");
+		saveButton.addActionListener(new MemberAdderListener(fieldID, fieldName, fieldHeight, fieldWeight, fieldBmi, fieldPhoneNumber, fieldProgramName, hoGYM));
+		
+		JButton cancelButton = new JButton("cancel");
+		cancelButton.addActionListener(new MemberAdderCancelListener(frame));
+		
 		panel.add(labelProgramName);
 		panel.add(fieldProgramName);
 		
-		panel.add(new JButton("save"));
-		panel.add(new JButton("cancel"));
+		panel.add(saveButton);
+		panel.add(cancelButton);
 		
 		SpringUtillities.makeCompactGrid(panel, 8, 2, 6, 6, 6, 6);
 		

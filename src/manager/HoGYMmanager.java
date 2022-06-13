@@ -23,6 +23,16 @@ public class HoGYMmanager implements Serializable { //회원정보 입력, 삭제, 편집,
 	HoGYMmanager(Scanner input) { //HoGYMmanager 클래스의 생성자함수 생성
 		this.input = input;
 	} 	
+	
+	public void Addm(int Id, String Name, double Height, double Weight, double Bmi, String PhoneNumber, String ProgramName) {
+		MemberInput memberInput = new WeightMember(MemberKind.Weight);
+		memberInput.getUserInput(input);
+		members.add(memberInput);
+	}
+	
+	public void Addm(MemberInput memberInput) {
+		members.add(memberInput);
+	}
 
 	
 	public void Addm() { //회원정보 입력 함수

@@ -21,7 +21,7 @@ public class Menumanager {
 			hoGYM = new HoGYMmanager(input);
 		}
 		else {
-			hoGYM.input= input;
+			hoGYM.input= input; 
 		}
 		
 		WindowFrame frame = new WindowFrame(hoGYM);
